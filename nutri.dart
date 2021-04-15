@@ -14,7 +14,7 @@ class _NutriState extends State<Nutri> {
   double calories, protein, sugar, fiber, cholestrol, fattot;
   String calory, pro, sug, fib, coles, fat;
   Map<String, String> get header =>
-      {'X-Api-Key': 'VCss15xNMOAe4yCTSJt2ZA==d4Z7Woo2IFcON66s'};
+      {'X-Api-Key': 'Your API key'};
 
   @override
   void initState() {
