@@ -9,12 +9,12 @@ class Nutri extends StatefulWidget {
 
 class _NutriState extends State<Nutri> {
   String food = 'Tomato';
-  int serving = 100;
+  int serving;
   String name;
   double calories, protein, sugar, fiber, cholestrol, fattot;
   String calory, pro, sug, fib, coles, fat;
   Map<String, String> get header =>
-      {'X-Api-Key': 'Your API key'};
+      {'X-Api-Key': 'API key'};
 
   @override
   void initState() {
@@ -32,6 +32,7 @@ class _NutriState extends State<Nutri> {
         if (response.statusCode == 200) {
           var decodedData = jsonDecode(response.body);
           name = decodedData['items'][0]['name'];
+          serving = decodedData['items'][0]['serving_size_g'];
           calories = decodedData['items'][0]['calories'];
           protein = decodedData['items'][0]['protein_g'];
           sugar = decodedData['items'][0]['sugar_g'];
@@ -123,7 +124,7 @@ class _NutriState extends State<Nutri> {
           Container(
             padding: EdgeInsets.all(10.0),
             child: (Text(
-              ' name:$name \n serving:$serving \n calories:$calory \n protein in g:$protein \n sugar in g:$sugar \n fiber in g:$fiber \n cholestrol in mg:$coles \n fat in g:$fat',
+              ' name:$name \n serving in g:$serving \n calories:$calory \n protein in g:$protein \n sugar in g:$sugar \n fiber in g:$fiber \n cholestrol in mg:$coles \n fat in g:$fat',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 20.0,
